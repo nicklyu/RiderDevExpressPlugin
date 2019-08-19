@@ -24,6 +24,7 @@ ext {
     repoRoot = projectDir
     isWindows = Os.isFamily(Os.FAMILY_WINDOWS)
     sdkVersion = "2019.2"
+    pluginVersion = "0.1.0"
     rdLibDirectory = new File(repoRoot, "build/riderRD-$sdkVersion/lib/rd")
     dotNetDir = new File(repoRoot, "src/dotnet")
     dotNetPluginId = "ReSharperPlugin.RiderDevExpressPlugin"
@@ -138,16 +139,6 @@ intellij {
     version = "$sdkVersion"
     downloadSources = false
 }
-
-patchPluginXml {
-    def changelogText = file("$repoRoot/CHANGELOG.md").text
-    def changelogMatches = changelogText =~ /(?s)(-.+?)(?=##|$)/
-
-    changeNotes = changelogMatches.collect {
-        it[1].replaceAll(/(?s)\r?\n/, "<br />\n")
-    }.take(1).join('')
-}
-
 
 prepareSandbox {
     dependsOn compileDotNet
