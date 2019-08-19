@@ -11,9 +11,4 @@
 <p>Sample description</p>
 ]]>
   </description>
-    <application-components>
-        <component>
-            <implementation-class>riderdevexpressplugin.PluginResourcesPathProvider</implementation-class>
-        </component>
-    </application-components>
 </idea-plugin>

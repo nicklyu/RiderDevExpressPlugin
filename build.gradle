@@ -1,4 +1,5 @@
 import org.apache.tools.ant.taskdefs.condition.Os
+import org.jetbrains.intellij.tasks.PrepareSandboxTask
 
 buildscript {
     repositories {
@@ -102,6 +103,14 @@ task compileDotNet {
     }
 }
 
+
+tasks.withType(PrepareSandboxTask) {
+    into("${intellij.pluginName}/templates") {
+        from("templates")
+    }
+}
+
+
 buildPlugin {
     dependsOn findMsBuild
     outputs.upToDateWhen { false }
@@ -130,36 +139,6 @@ intellij {
     downloadSources = false
 }
 
-apply plugin: 'com.jetbrains.rdgen'
-
-rdgen {
-    def modelDir = new File(repoRoot, "protocol/src/main/kotlin/model")
-    def csOutput = new File(repoRoot, "src/dotnet/ReSharperPlugin.RiderDevExpressPlugin/Rider/Model")
-    def ktOutput = new File(repoRoot, "src/rider/main/kotlin/riderdevexpressplugin/model")
-
-    verbose = true
-    classpath "$rdLibDirectory/rider-model.jar"
-    sources "$modelDir/rider"
-    hashFolder = 'build/rdgen/rider'
-    packages = "model.rider"
-
-    generator {
-        language = "kotlin"
-        transform = "asis"
-        root = "com.jetbrains.rider.model.nova.ide.IdeRoot"
-        namespace = "com.jetbrains.rider.model"
-        directory = "$ktOutput"
-    }
-
-    generator {
-        language = "csharp"
-        transform = "reversed"
-        root = "com.jetbrains.rider.model.nova.ide.IdeRoot"
-        namespace = "JetBrains.Rider.Model"
-        directory = "$csOutput"
-    }
-}
-
 patchPluginXml {
     def changelogText = file("$repoRoot/CHANGELOG.md").text
     def changelogMatches = changelogText =~ /(?s)(-.+?)(?=##|$)/
@@ -168,6 +147,7 @@ patchPluginXml {
         it[1].replaceAll(/(?s)\r?\n/, "<br />\n")
     }.take(1).join('')
 }
+
 
 prepareSandbox {
     dependsOn compileDotNet

@@ -9,17 +9,17 @@ namespace ReSharperPlugin.RiderDevExpressPlugin.Rider
     [ShellComponent]
     public class DevExpressProjectTemplatesProvider : IDotNetTemplateSource
     {
-        private readonly RiderDevExpressPluginModel myPluginModel;
+        private readonly FileSystemPath myTemplatesDirectoryPath;
 
-        public DevExpressProjectTemplatesProvider(RiderDevExpressPluginModel pluginModel)
+        public DevExpressProjectTemplatesProvider()
         {
-            myPluginModel = pluginModel;
+            var assemblyLocation = FileSystemPath.Parse(typeof(DevExpressProjectTemplatesProvider).Assembly.Location);
+            myTemplatesDirectoryPath = assemblyLocation.Parent/ "templates";
         }
 
         public IReadOnlyCollection<FileSystemPath> GetSources(bool creatingSolution)
         {
-            var path = myPluginModel.PluginTemplatesPath.Value;
-            return null;
+            return new[] {myTemplatesDirectoryPath / "19.1"};
         }
     }
 }
