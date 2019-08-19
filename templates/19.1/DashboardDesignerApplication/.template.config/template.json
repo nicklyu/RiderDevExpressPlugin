@@ -1,0 +1,78 @@
+{  
+   "schema":"http://json.schemastore.org/template",
+   "author":"DevExpress",
+   "name":"DevExpress",
+   "description":"",
+   "defaultName":"DashboardDesignerApplication1",
+   "classifications":[  
+      "Desktop",
+      "WinForms",
+      "DevExpress"
+   ],
+   "identity":"JetBrains.Desktop.WinForms.CSharp.DevExpress.DashboardDesignerApplication",
+   "shortName":"jbwinformsdedashborddesigner",
+   "tags":{  
+      "type":"project",
+      "language":"C#",
+      "platform":".NET",
+      "technology":"Windows Forms",
+      "template":"DashboardDesignerApplication",
+      "templateType":"Business solutions"
+   },
+   "sourceName":"DashboardDesignerApplication",
+   "preferNameDirectory":"true",
+   "guids":[  
+      "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"
+   ],
+   "symbols":{  
+      "Framework":{  
+         "type":"parameter",
+         "description":"The target framework for the project.",
+         "datatype":"text",
+         "replaces":"v4.5",
+         "isRequired":"true",
+         "defaultValue":"<FullTargetFramework>"
+      },
+      "CompanyName":{  
+         "type":"parameter",
+         "datatype":"text",
+         "replaces":"CompanyName",
+         "defaultValue":""
+      },
+      "CompanyTrademark":{  
+         "type":"parameter",
+         "datatype":"text",
+         "replaces":"CompanyTrademark",
+         "defaultValue":""
+      },
+      "Year":{  
+         "type":"generated",
+         "generator":"now",
+         "replaces":"Year",
+         "parameters":{  
+            "format":"yyyy"
+         }
+      }
+   },
+   "primaryOutputs":[  
+      {  
+         "path":"DashboardDesignerApplication.csproj"
+      },
+      {  
+         "path":"DesignerForm1.cs"
+      }
+   ],
+   "postActions":[  
+      {  
+         "description":"Opens DesignerForm1.cs in the editor",
+         "manualInstructions":[  
+
+         ],
+         "actionId":"84C0DA21-51C8-4541-9940-6CA19AF04EE6",
+         "args":{  
+            "files":"1"
+         },
+         "continueOnError":true
+      }
+   ]
+}
