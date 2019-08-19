@@ -29,6 +29,8 @@ namespace ReSharperPlugin.RiderDevExpressPlugin.Rider.GroupProviders
             {
                 return info.GetTagValue(DevExpressTemplateTag);
             }
+
+            protected override IComparer<string> OptionsComparer => StringByLengthComparer.Comparer; // Easiest way for default components view suitable to default DevExpress Template Manager
         }
     }
 }

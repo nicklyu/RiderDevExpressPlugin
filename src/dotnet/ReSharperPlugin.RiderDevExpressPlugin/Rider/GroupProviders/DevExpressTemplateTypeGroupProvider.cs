@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using JetBrains.Application;
@@ -30,6 +31,8 @@ namespace ReSharperPlugin.RiderDevExpressPlugin.Rider.GroupProviders
             {
                 return info.GetTagValue(TemplateTypeTag);
             }
+
+            protected override IComparer<string> OptionsComparer => StringByLengthComparer.Comparer; // Easiest way for default components view suitable to default DevExpress Template Manager
         }
     }
 }
