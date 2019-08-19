@@ -5,4 +5,8 @@
   <vendor url="https://github.com/nicklyu">Nick Lyubimov</vendor>
   <idea-version since-build="192" />
   <depends>com.intellij.modules.rider</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <rider.projectView.actions.projectTemplating.backend.reSharperProjectTemplateCustomizer implementation="riderdevexpressplugin.RiderDevExpressTemplateCustomizer"/>
+  </extensions>
 </idea-plugin>
