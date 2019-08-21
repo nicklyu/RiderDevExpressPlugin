@@ -1,0 +1,86 @@
+{  
+   "$schema":"http://json.schemastore.org/template",
+   "author":"DevExpress",
+   "name":"DevExpress",
+   "description":"",
+   "defaultName":"WizardApplication1",
+   "classifications":[  
+      "Desktop",
+      "WinForms",
+      "DevExpress"
+   ],
+   "identity":"JetBrains.Desktop.WinForms.CSharp.DevExpress.WizardApplication",
+   "shortName":"jbwinformsdewizardapplication",
+   "tags":{  
+      "type":"project",
+      "language":"C#",
+      "platform":".NET",
+      "technology":"Windows Forms",
+      "template":"WizardApplication",
+      "templateType":"Windows UI Applications"
+   },
+   "sourceName":"WizardApplication",
+   "preferNameDirectory":"true",
+   "guids":[  
+      "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"
+   ],
+   "symbols":{
+      "DEVersion": {
+         "type": "parameter",
+         "description": "DevExpress version",
+         "datatype": "text",
+         "replaces": "v19.1",
+         "isRequired": "true",
+         "defaultValue": "v19.1"
+      },
+      "Framework":{  
+         "type":"parameter",
+         "description":"The target framework for the project.",
+         "datatype":"text",
+         "replaces":"v4.5",
+         "isRequired":"true",
+         "defaultValue":"<FullTargetFramework>"
+      },
+      "CompanyName":{  
+         "type":"parameter",
+         "datatype":"text",
+         "replaces":"CompanyName",
+         "defaultValue":""
+      },
+      "CompanyTrademark":{  
+         "type":"parameter",
+         "datatype":"text",
+         "replaces":"CompanyTrademark",
+         "defaultValue":""
+      },
+      "Year":{  
+         "type":"generated",
+         "generator":"now",
+         "replaces":"Year",
+         "parameters":{  
+            "format":"yyyy"
+         }
+      }
+   },
+   "primaryOutputs":[  
+      {  
+         "path":"WizardApplication.csproj"
+      },
+      {  
+         "path":"MainForm.cs"
+      }
+   ],
+   "postActions":[  
+      {  
+         "description":"Opens MainForm.cs in the editor",
+         "manualInstructions":[  
+
+         ],
+         "actionId":"84C0DA21-51C8-4541-9940-6CA19AF04EE6",
+         "args":{  
+            "files":"1"
+         },
+         "continueOnError":true
+      }
+   ]
+}
