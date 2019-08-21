@@ -11,7 +11,7 @@
     <DefineConstants>$(DefineConstants);RIDER</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="JetBrains.Rider.SDK" Version="$(SdkVersion)" />
+    <PackageReference Include="JetBrains.Rider.SDK" Version="2019.2.0" />
   </ItemGroup>
   <!-- TODO: uncomment for xaml icons -->
   <!--<ItemGroup>-->
